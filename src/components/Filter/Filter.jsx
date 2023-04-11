@@ -3,7 +3,8 @@ import st from './Filter.module.css';
 import PropTypes from 'prop-types';
 
 const Filter = ({ filterUser }) => {
-  const stateValue = useSelector(state=>state.filter)
+  const filterState = useSelector(state=>state.filter)
+  console.log(filterState)
   return (
     <>
       <label className={st.label}>

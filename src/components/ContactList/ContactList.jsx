@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 const ContactList = ({ contacts, filter, removeUser }) => {
   const contactsState = useSelector(state=>state.contacts);
   const filterState = useSelector(state=>state.filter);
+  console.log(contactsState,filterState)
   return (
     <>
       <ul>
