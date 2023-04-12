@@ -3,13 +3,9 @@
 import { ContactForm } from './ContactForm/ContactForm';
 import ContactList from './ContactList/ContactList';
 import Filter from './Filter/Filter';
-import { useEffect } from 'react';
-import {persistor} from '../redux/store';
-import { useSelector } from 'react-redux';
 
 
 export const App = () => {
-  const contacts = useSelector(state=>state.contacts);
   
   // useEffect(() => {
   //   if(!contacts.length){
