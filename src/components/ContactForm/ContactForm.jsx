@@ -1,20 +1,30 @@
 // import { Component } from 'react';
 import { useState } from 'react';
 import st from './Contactform.module.css';
-import { useDispatch } from 'react-redux';
-import { addUser } from 'redux/actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { addUser } from 'redux/contactsSlice';
+// import { addUser } from 'redux/actions';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-// export const ContactForm = ({addUser}) => {
+
 export const ContactForm = () => {
  const dispatch = useDispatch();
+ const contacts = useSelector(state=>state.contacts)
 
   const [name,setName] = useState('')
   const [number,setNumber] = useState('')
 
   const handleAddUser = e => {
     e.preventDefault();
+    if (contacts.find(el => el.name.toLowerCase() === name.toLowerCase())||
+    contacts.find(el => el.number === number)) {
+      Notify.failure(`${name} or ${number} is already in contacts`);
+      return;
+    }
     // addUser({name,number});
     dispatch(addUser({name,number}));
+    Notify.success(`Contact ${name} has been added`);
+
     e.target.reset()
     setName('');
     setNumber('')

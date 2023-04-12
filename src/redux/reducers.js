@@ -1,4 +1,5 @@
 
+
 const contactsInitialState = {
     contacts:[],
 }
@@ -6,7 +7,7 @@ const filterInitialState = {
     filter:'',
 }
 
-const userReducer = (state = contactsInitialState, action) => {
+export const contactsReducer = (state = contactsInitialState, action) => {
     switch(action.type){
         case "user/addUser":
             return{
@@ -24,7 +25,7 @@ const userReducer = (state = contactsInitialState, action) => {
     }
 }
 
-const filterReducer = (state=filterInitialState,action) =>{
+export const filterReducer = (state=filterInitialState,action) =>{
     switch(action.type){
         case "filter/change":
             return{
@@ -37,10 +38,10 @@ const filterReducer = (state=filterInitialState,action) =>{
     }
 }
 
-export const rootReducer = (state = {},action) =>{
-    return{
-        contacts:userReducer(state.contacts,action),
-        filter:filterReducer(state.filter,action)
-    }
-}
+// export const rootReducer = (state = {},action) =>{
+//     return{
+//         contacts:userReducer(state.contacts,action),
+//         filter:filterReducer(state.filter,action)
+//     }
+// }
 
