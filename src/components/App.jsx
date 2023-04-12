@@ -11,13 +11,13 @@ import { useSelector } from 'react-redux';
 export const App = () => {
   const contacts = useSelector(state=>state.contacts);
   
-  useEffect(() => {
-    if(!contacts.length){
-    persistor.pause();
-    persistor.flush().then(() => {
-      return persistor.purge();
-    });}
-  }, [contacts]);
+  // useEffect(() => {
+  //   if(!contacts.length){
+  //   persistor.pause();
+  //   persistor.flush().then(() => {
+  //     return persistor.purge();
+  //   });}
+  // }, [contacts]);
 
   return (
     <div>
