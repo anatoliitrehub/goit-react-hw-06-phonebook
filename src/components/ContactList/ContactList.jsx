@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { removeUser } from 'redux/contactsSlice';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
+
 const ContactList = () => {
   const contacts = useSelector(state=>state.contacts);
   const filter = useSelector(state=>state.filter);
@@ -12,6 +13,7 @@ const ContactList = () => {
     dispatch(removeUser(id));
     Notify.success('Contact has been removed');
   }
+
   return (
     <>
       <ul>
